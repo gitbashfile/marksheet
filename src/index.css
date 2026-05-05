@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fffdf2;
+  color: #000000;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.navbar-cointainer {
+  display: flex;
+  gap: 20px;
+  background-color: grey;
+  border-bottom: 2px solid black;
+}
+.nav-link {
+  color: lavender;
+  padding: 20px;
+}
+.nav-link.active {
+  background-color: lavender;
+  color: grey;
+}
+.config-cointainer {
+  padding: 24px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+.config-cointainer h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2d2d2d;
+}
+
+.config-table,
+.std-table,
+.marks-table,
+.mark-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.config-table thead tr:first-child {
+  background: #f1f3f5;
+}
+
+.config-table thead tr:nth-child(2) th {
+  font-size: 12px;
+  color: #888;
+}
+
+.config-table th,
+.std-table th,
+.marks-table th,
+.mark-table th {
+  padding: 14px;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
+  font-size: 14px;
+}
+
+.config-table td,
+.std-table td,
+.mark-table td {
+  padding: 14px;
+  font-size: 14px;
+  color: #333;
+}
+
+.config-table tbody tr,
+.std-table tbody tr,
+.marks-table tbody tr,
+.mark-table tbody tr {
+  border-top: 1px solid #eee;
+}
+
+.config-table tbody tr:hover,
+.std-table tbody tr:hover,
+.marks-table tbody tr:hover,
+.mark-table tbody tr:hover{
+  background: #f9fafb;
+}
+
+.config-table td:nth-child(2),
+.std-table td:nth-child(2),
+.marks-table td:nth-child(2),
+.mark-table td:nth-child(2) {
+  font-weight: 600;
+}
+
+.config-table th,
+.config-table td,
+.marks-table td,
+.mark-table td {
+  border: none;
+}
+
+.config-table thead tr:first-child th:nth-child(3),
+.mark-table thead tr:first-child th:nth-child(3),
+.config-table thead tr:first-child th:nth-child(4),
+.mark-table thead tr:first-child th:nth-child(4)
+ {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.config-table thead tr:first-child th:nth-child(5),
+.mark-table thead tr:first-child th:nth-child(5),
+.config-table thead tr:first-child th:nth-child(6),
+.mark-table thead tr:first-child th:nth-child(6)
+ {
+  background: #fef3c7;
+  color: #d97706;
+}
+.form-cointainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-cointainer h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.form-cointainer > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-cointainer label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-cointainer input {
+  padding: 12px;
+  border: 1px solid #dcdfe3;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-cointainer input:focus {
+  border-color: #339af0;
+  box-shadow: 0 0 0 2px rgba(51, 154, 240, 0.15);
+}
+
+.form-marks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.form-marks > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-cointainer .secondary-btn {
+  background: #e9ecef;
+  color: #333;
+  margin-left: 10px;
+}
+
+.form-cointainer .secondary-btn:hover {
+  background: #dee2e6;
+}
+.grades-card {
+  margin-top: 30px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.grades-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subtext {
+  color: #868e96;
+  margin-bottom: 20px;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.grades-table th {
+  text-align: left;
+  padding: 12px;
+  color: #555;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.grades-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.grade-badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-failed {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+.badge-second {
+  background: #fff3bf;
+  color: #e67700;
+}
+
+.badge-first {
+  background: #d0ebff;
+  color: #1c7ed6;
+}
+
+.badge-merit {
+  background: #eebefa;
+  color: #862e9c;
+}
+
+.edit-btn {
+  background: #e9ecef;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #dee2e6;
+}
+/* MODAL FORM CONTAINER */
+.std-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 5px;
+}
+
+/* EACH FIELD */
+.std-form > div > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* LABEL */
+.std-form label {
+  width: 150px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* INPUT */
+.std-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #dcdfe3;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+/* INPUT FOCUS */
+.std-form input:focus {
+  border-color: #339af0;
+  box-shadow: 0 0 0 2px rgba(51, 154, 240, 0.15);
+}
+.marks-table td {
+  padding: 0.5rem;
+}
+.exam-selector{
+  display: flex;
+  gap: 1rem;
+}
+.exam-selector button{
+  padding: 0.5rem;
+  background-color: #339af0;
+  border: none;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  color: white;
+}
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.unit1 {
+  background: #d0ebff;
+  color: #1c7ed6;
+}
+
+.unit2 {
+  background: #d0ebff;
+  color: #1c7ed6;
+}
+
+.term1 {
+  background: #fff3bf;
+  color: #e67700;
+}
+
+.term2 {
+  background: #fff3bf;
+  color: #e67700;
+}
+.marksheet-container {
+  padding: 20px;
+}
+
+.marksheet-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid #333;
+}
+
+.student-info {
+  display: flex;
+  justify-content: space-between;
+  background: #f1f3f5;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pass {
+  color: green;
+  font-weight: bold;
+}
+
+.fail {
+  color: red;
+  font-weight: bold;
+}
+
+.grade {
+  color: #1c7ed6;
+}
