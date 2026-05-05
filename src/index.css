@@ -9,6 +9,25 @@ body {
   background-color: #fffdf2;
   color: #000000;
 }
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  min-width: 0;
+}
+
+button,
+input,
+select {
+  max-width: 100%;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -18,15 +37,23 @@ a {
   gap: 20px;
   background-color: grey;
   border-bottom: 2px solid black;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .nav-link {
   color: lavender;
   padding: 20px;
+  white-space: nowrap;
 }
 .nav-link.active {
   background-color: lavender;
   color: grey;
 }
+.student-cointainer,
+.marks-cointainer {
+  padding: 24px;
+}
+
 .config-cointainer {
   padding: 24px;
   background: #f5f7fa;
@@ -375,4 +402,194 @@ a {
 
 .grade {
   color: #1c7ed6;
+}
+
+@media (max-width: 900px) {
+  .navbar-cointainer {
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .navbar-cointainer button {
+    margin-left: 0 !important;
+    margin: 8px 12px 8px auto;
+    padding: 8px 12px;
+  }
+
+  .config-cointainer,
+  .student-cointainer,
+  .marks-cointainer,
+  .marksheet-container {
+    padding: 16px;
+  }
+
+  .form-marks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .student-info,
+  .summary {
+    gap: 14px;
+  }
+
+  .summary {
+    flex-wrap: wrap;
+  }
+
+  .summary > div {
+    flex: 1 1 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar-cointainer {
+    align-items: stretch;
+  }
+
+  .nav-link {
+    flex: 1 1 50%;
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .navbar-cointainer button {
+    width: calc(100% - 24px);
+    margin: 8px 12px 10px !important;
+  }
+
+  .config-cointainer,
+  .student-cointainer,
+  .marks-cointainer,
+  .marksheet-container {
+    padding: 12px;
+  }
+
+  .config-cointainer h2,
+  .marks-cointainer h2,
+  .student-cointainer h2,
+  .marksheet-container h2 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .config-table,
+  .std-table,
+  .marks-table,
+  .mark-table,
+  .grades-table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .config-table th,
+  .std-table th,
+  .marks-table th,
+  .mark-table th {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .config-table td,
+  .std-table td,
+  .marks-table td,
+  .mark-table td,
+  .grades-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .form-marks {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .std-form > div > div {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .std-form label {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .marksheet-card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .marksheet-card h1 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .marksheet-card p {
+    line-height: 1.4;
+  }
+
+  .student-info {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .summary h2 {
+    font-size: 20px;
+  }
+
+  .summary p {
+    font-size: 13px;
+  }
+
+  .grades-card {
+    padding: 14px;
+  }
+
+  .grade-badge {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .mantine-Paper-root {
+    width: calc(100vw - 32px) !important;
+    max-width: 350px;
+  }
+
+  .mantine-SegmentedControl-root {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-link {
+    flex-basis: 100%;
+  }
+
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .marksheet-card h1 {
+    font-size: 20px;
+  }
 }
