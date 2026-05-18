@@ -84,30 +84,32 @@ function Student() {
   return (
     <div className="student-cointainer">
       <h2>Students</h2>
-      <table className="std-table">
-        <thead>
-          <tr style={{ backgroundColor: "lavender" }}>
-            <th>Roll No</th>
-            <th>Student Name</th>
-            <th>Class</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {students.map((std, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{std.name}</td>
-              <td>{std.class}</td>
-              <td>
-                <button onClick={() => handlDeleteStudent(std.roll_no)}>
-                  Delete
-                </button>
-              </td>
+      <div className="table-scroll">
+        <table className="std-table">
+          <thead>
+            <tr style={{ backgroundColor: "lavender" }}>
+              <th>Roll No</th>
+              <th>Student Name</th>
+              <th>Class</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {students.map((std, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{std.name}</td>
+                <td>{std.class}</td>
+                <td>
+                  <button onClick={() => handlDeleteStudent(std.roll_no)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <Modal opened={opened} onClose={close} title="Add Student" centered>
         <div className="std-form">
           <div>
@@ -138,15 +140,16 @@ function Student() {
           </Button>
         </div>
       </Modal>
-      <br />
-      <Button
-        variant="light"
-        color="rgba(255, 239, 181, 1)"
-        radius="xl"
-        onClick={open}
-      >
-        Add New Student
-      </Button>
+      <div className="page-action">
+        <Button
+          variant="light"
+          color="rgba(255, 239, 181, 1)"
+          radius="xl"
+          onClick={open}
+        >
+          Add New Student
+        </Button>
+      </div>
     </div>
   );
 }

@@ -108,50 +108,52 @@ function Configuration() {
   return (
     <div className="config-cointainer">
       <h2>Subjects And Marks Configuration</h2>
-      <table className="config-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Subjects</th>
-            <th colSpan={2}>Unit 1</th>
-            <th colSpan={2}>Unit 2</th>
-            <th colSpan={2}>Term 1</th>
-            <th colSpan={2}>Term 2</th>
-            <th>Action</th>
-          </tr>
-          <tr>
-            <th></th>
-            <th></th>
-            <th>Max</th>
-            <th>Pass</th>
-            <th>Max</th>
-            <th>Pass</th>
-            <th>Max</th>
-            <th>Pass</th>
-            <th>Max</th>
-            <th>Pass</th>
-          </tr>
-        </thead>
-        <tbody>
-          {subjects.map((sub, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{sub.name}</td>
-              <td>{sub.unit1_max}</td>
-              <td>{sub.unit1_pass}</td>
-              <td>{sub.unit2_max}</td>
-              <td>{sub.unit2_pass}</td>
-              <td>{sub.term1_max}</td>
-              <td>{sub.term1_pass}</td>
-              <td>{sub.term2_max}</td>
-              <td>{sub.term2_pass}</td>
-              <td>
-                <button onClick={() => handleSubjectDelete(sub.id)}>Delete</button>
-              </td>
+      <div className="table-scroll">
+        <table className="config-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Subjects</th>
+              <th colSpan={2}>Unit 1</th>
+              <th colSpan={2}>Unit 2</th>
+              <th colSpan={2}>Term 1</th>
+              <th colSpan={2}>Term 2</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Max</th>
+              <th>Pass</th>
+              <th>Max</th>
+              <th>Pass</th>
+              <th>Max</th>
+              <th>Pass</th>
+              <th>Max</th>
+              <th>Pass</th>
+            </tr>
+          </thead>
+          <tbody>
+            {subjects.map((sub, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{sub.name}</td>
+                <td>{sub.unit1_max}</td>
+                <td>{sub.unit1_pass}</td>
+                <td>{sub.unit2_max}</td>
+                <td>{sub.unit2_pass}</td>
+                <td>{sub.term1_max}</td>
+                <td>{sub.term1_pass}</td>
+                <td>{sub.term2_max}</td>
+                <td>{sub.term2_pass}</td>
+                <td>
+                  <button onClick={() => handleSubjectDelete(sub.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <Modal opened={opened} onClose={close} size={"auto"} centered>
         <div>
           <h3>Edit / Add Subjects</h3>
@@ -235,34 +237,37 @@ function Configuration() {
           </div>
         </div>
       </Modal>
-      <br />
-      <Button variant="light" color="rgba(255, 239, 181, 1)" radius="xl" onClick={open}>Add New Subject</Button>
+      <div className="page-action">
+        <Button variant="light" color="rgba(255, 239, 181, 1)" radius="xl" onClick={open}>Add New Subject</Button>
+      </div>
       <div className="grades-card">
         <h3>Grade Thresholds</h3>
         <p className="subtext">
           Grade is calculated on overall percentage across all subjects
         </p>
 
-        <table className="grades-table">
-          <thead>
-            <tr>
-              <th>Grade</th>
-              <th>Minimum %</th>
-            </tr>
-          </thead>
-          <tbody>
-            {grades.map((grade, index) => (
-              <tr key={index}>
-                <td>
-                  <span className={`grade-badge ${grade.class}`}>
-                    {grade.name}
-                  </span>
-                </td>
-                <td>{grade.label}</td>
+        <div className="table-scroll">
+          <table className="grades-table">
+            <thead>
+              <tr>
+                <th>Grade</th>
+                <th>Minimum %</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {grades.map((grade, index) => (
+                <tr key={index}>
+                  <td>
+                    <span className={`grade-badge ${grade.class}`}>
+                      {grade.name}
+                    </span>
+                  </td>
+                  <td>{grade.label}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

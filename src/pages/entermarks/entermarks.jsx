@@ -113,75 +113,76 @@ useEffect(() => {
   return (
     <div className="marks-cointainer">
       <h2>Enter Marks</h2>
-      <br />
-      <SegmentedControl
-      fullWidth
-      size="lg"
-      radius="xl"
-        value={activeExam}
-        onChange={setActiveExam}
-        data={[
-          { label: "Unit 1", value: "unit1" },
-          { label: "Unit 2", value: "unit2" },
-          { label: "Term 1", value: "term1" },
-          { label: "Term 2", value: "term2" },
-        ]}
-      />
-    <br />
-      <div>
+      <div className="exam-toolbar">
+        <SegmentedControl
+          fullWidth
+          size="lg"
+          radius="xl"
+          value={activeExam}
+          onChange={setActiveExam}
+          data={[
+            { label: "Unit 1", value: "unit1" },
+            { label: "Unit 2", value: "unit2" },
+            { label: "Term 1", value: "term1" },
+            { label: "Term 2", value: "term2" },
+          ]}
+        />
+      </div>
+      <div className="section-note">
         Enter Marks for <b>{activeExam}</b>
       </div>
 
-      <table className="marks-table">
-        <thead>
-          <tr style={{ backgroundColor: "lavender" }}>
-            <th>Roll No</th>
-            <th>Student Name</th>
-            {subjects.map((sub, i) => (
-              <th key={i}>
-                {sub.name}
-                <br />
-                <small>max {getMaxMarks(sub)}</small>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {students.map((std, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{std.name}</td>
-
-              {subjects.map((sub, subIndex) => {
-                const value = marks?.[activeExam]?.[std.roll_no]?.[sub.name] || "";
-
-                const isFail = value !== "" && value < getPassMarks(sub);
-
-                return (
-                  <td key={subIndex}>
-                    <input
-                      type="number"
-                      value={value}
-                      onChange={(e) =>
-                        handleMarkChange(std.roll_no, sub.name, e.target.value)
-                      }
-                      style={{
-                        border: isFail ? "2px solid red" : "",
-                        borderRadius: "6px",
-                        padding: "5px",
-                        width: "60px",
-                      }}
-                    />
-                  </td>
-                );
-              })}
+      <div className="table-scroll">
+        <table className="marks-table">
+          <thead>
+            <tr style={{ backgroundColor: "lavender" }}>
+              <th>Roll No</th>
+              <th>Student Name</th>
+              {subjects.map((sub, i) => (
+                <th key={i}>
+                  {sub.name}
+                  <br />
+                  <small>max {getMaxMarks(sub)}</small>
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {students.map((std, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{std.name}</td>
 
-      {/* Buttons */}
-      <div style={{ marginTop: "20px" }}>
+                {subjects.map((sub, subIndex) => {
+                  const value = marks?.[activeExam]?.[std.roll_no]?.[sub.name] || "";
+
+                  const isFail = value !== "" && value < getPassMarks(sub);
+
+                  return (
+                    <td key={subIndex}>
+                      <input
+                        type="number"
+                        value={value}
+                        onChange={(e) =>
+                          handleMarkChange(std.roll_no, sub.name, e.target.value)
+                        }
+                        style={{
+                          border: isFail ? "2px solid red" : "",
+                          borderRadius: "6px",
+                          padding: "5px",
+                          width: "60px",
+                        }}
+                      />
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="page-action">
         <Button
           variant="light"
           color="rgba(255, 239, 181, 1)"

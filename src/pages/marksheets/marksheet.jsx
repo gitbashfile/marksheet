@@ -133,7 +133,7 @@ function Marksheets() {
   return (
     <div className="marksheet-container">
       <h2>Marksheet</h2>
-      <div>
+      <div className="marksheet-toolbar">
         <select
           value={selectedIndex}
           onChange={(e) => setSelectedIndex(Number(e.target.value))}
@@ -148,7 +148,6 @@ function Marksheets() {
           Print Marksheet
         </Button>
       </div>
-      <br />
       <div className="marksheet-card">
         <h1>Imatix College Of Business</h1>
         <p>Consolidated Marksheet - Academic year 2025-2026</p>
@@ -170,50 +169,52 @@ function Marksheets() {
             </p>
           </div>
         </div>
-        <table className="mark-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Subject</th>
-              <th>Unit 1</th>
-              <th>Unit 2</th>
-              <th>Term 1</th>
-              <th>Term 2</th>
-              <th>Total</th>
-              <th>Result</th>
-            </tr>
-          </thead>
-          <tbody>
-            {subjects.map((sub, index) => {
-              const total = getSubjectTotal(sub.name);
-              const pass = isSubjectPass(sub);
+        <div className="table-scroll">
+          <table className="mark-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Subject</th>
+                <th>Unit 1</th>
+                <th>Unit 2</th>
+                <th>Term 1</th>
+                <th>Term 2</th>
+                <th>Total</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subjects.map((sub, index) => {
+                const total = getSubjectTotal(sub.name);
+                const pass = isSubjectPass(sub);
 
-              return (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{sub.name}</td>
-                  <td>{getMarks("unit1", sub.name)}</td>
-                  <td>{getMarks("unit2", sub.name)}</td>
-                  <td>{getMarks("term1", sub.name)}</td>
-                  <td>{getMarks("term2", sub.name)}</td>
-                  <td>
-                    <b>{total}</b>
-                  </td>
-                  <td
-                    style={{
-                      backgroundColor: pass ? "lightgreen" : "#f07373",
-                      color: pass ? "green" : "black",
-                      textAlign: "center",
-                      borderRadius: "20px",
-                    }}
-                  >
-                    {pass ? "Pass" : "Fail"}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{sub.name}</td>
+                    <td>{getMarks("unit1", sub.name)}</td>
+                    <td>{getMarks("unit2", sub.name)}</td>
+                    <td>{getMarks("term1", sub.name)}</td>
+                    <td>{getMarks("term2", sub.name)}</td>
+                    <td>
+                      <b>{total}</b>
+                    </td>
+                    <td
+                      style={{
+                        backgroundColor: pass ? "lightgreen" : "#f07373",
+                        color: pass ? "green" : "black",
+                        textAlign: "center",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      {pass ? "Pass" : "Fail"}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
         <div className="summary">
           <div>
             <h2>{getGrandTotal()}</h2>
